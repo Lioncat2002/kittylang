@@ -1,5 +1,11 @@
 # KittyLang
-A programming language by cats for cats
+I am rewriting kittylang a programming language written by cats for cats </br>
+following https://craftinginterpreters.com/ as a guide :P</br>
+Currently writing the interpreter(jcat)</br>
+Will be followed by the compiler in C (ccat)</br>
+
+jcat can currently "scan" the source code/repl for tokens</br>
+and output them accordingly</br>
 
 # Interpreter
 jcat - implemented in java
