@@ -3,7 +3,7 @@ package org.kittylang.jcat;
 enum  TokenType{
     //single char tokens
     LEFT_PAREN,RIGHT_PAREN,LEFT_BRACE,RIGHT_BRACE,
-    COMMA,DOT,MINUS,SEMICOLON,SLASH,START,PLUS,
+    COMMA,DOT,MINUS,SEMICOLON,SLASH,STAR,PLUS,
 
     //one or two char tokens
     BANG,BANG_EQUAL,

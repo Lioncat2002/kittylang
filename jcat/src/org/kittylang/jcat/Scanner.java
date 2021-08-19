@@ -67,7 +67,11 @@ public class Scanner {
             case '-':addToken(MINUS);break;
             case '+':addToken(PLUS);break;
             case ';':addToken(SEMICOLON);break;
-            case '*':addToken(START);break;
+
+
+            case '*':
+                addToken(STAR);
+                break;
             case '!':
                 addToken(match('=')?BANG_EQUAL:BANG);
                 break;
@@ -85,12 +89,18 @@ public class Scanner {
                 if (match('/')){
                     while (peek()!='\n'&&!isAtEnd())advance();
                 }
+                if (match('*'))
+                {
+                    multiLineComment();
+
+                }
                 else
                 {
                     addToken(SLASH);
                 }
                 break;
             case ' ':
+
             case '\r':
             case '\t':
                 //ignore whitespace
@@ -122,10 +132,12 @@ public class Scanner {
         current++;
         return true;
     }
+
     private char peek(){
         if (isAtEnd()) return '\0';
         return source.charAt(current);
     }
+
     private char peekNext(){
         if (current+1>=source.length())return '\0';
         return source.charAt(current+1);
@@ -149,6 +161,24 @@ public class Scanner {
         TokenType type=keywords.get(text);
         if (type==null)type=IDENTIFIER;
         addToken(type);
+    }
+    private void multiLineComment(){
+        while (peek()!='/'&&!isAtEnd()){
+            if (peek()=='*'&&peekNext()=='/')
+            {
+                current++;
+                advance();
+                break;
+            }
+            else if (peek()=='\n'){
+                line++;
+            }
+            advance();
+            if (isAtEnd()){
+                jcat.error(line,"Unterminated comment");
+            }
+        }
+
     }
     private void number(){
         while (isDigit(peek()))advance();
