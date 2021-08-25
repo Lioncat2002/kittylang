@@ -180,6 +180,7 @@ public class Scanner {
         }
 
     }
+
     private void number(){
         while (isDigit(peek()))advance();
 

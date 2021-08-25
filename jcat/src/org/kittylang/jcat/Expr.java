@@ -1,5 +1,7 @@
 package org.kittylang.jcat;
 import java.util.List;
+//This File has been programatically generated  from org.kittylang.tools.generateAst
+
 abstract class Expr{
  static class Binary extends Expr{
 Binary(Expr left, Token operator, Expr right){

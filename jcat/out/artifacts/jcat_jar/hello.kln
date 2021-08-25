@@ -1,4 +1,6 @@
 a=20;
-print a;
+print a;//miao
 /*this is 
-multiLineComment
+multiLineComment*/
+
+    

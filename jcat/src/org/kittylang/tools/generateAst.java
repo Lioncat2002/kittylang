@@ -31,6 +31,7 @@ public class generateAst {
         PrintWriter writer=new PrintWriter(path,"UTF-8");
         writer.println("package org.kittylang.jcat;");
         writer.println("import java.util.List;");
+        writer.println("//This File has been programatically generated  from org.kittylang.tools.generateAst");
         writer.println("abstract class "+baseName+"{");
 
         for(String type:types){
